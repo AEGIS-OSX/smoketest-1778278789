@@ -1,31 +1,31 @@
 {
   "hero": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/smoketest-1778278789/cleo/1778279391110-hero.png",
+    "alt": "Hero image shows a tight editorial still life of a brass leash clasp on matte charcoal with cream and moss accents. It fits the direction by giving PawWalk a quiet luxury entry point with warm tungste",
     "width": 1920,
     "height": 1080
   },
   "feature_1": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/smoketest-1778278789/cleo/1778279379373-feature_1.png",
+    "alt": "Feature image one shows leash hardware and a schedule card arranged on a matte charcoal tabletop with a moss green tray. It supports the reliability value through ordered objects, warm brass accents, ",
     "width": 800,
     "height": 600
   },
   "feature_2": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/smoketest-1778278789/cleo/1778279377178-feature_2.png",
+    "alt": "Feature image two shows a brass clock, leash, and dog tag on cream stone against charcoal. It translates flexible scheduling into a calm editorial still life with asymmetrical composition and warm gal",
     "width": 800,
     "height": 600
   },
   "feature_3": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/smoketest-1778278789/cleo/1778279367820-feature_3.png",
+    "alt": "Feature image three shows a calm dog at a charcoal apartment entry with brass hardware and a cropped handler hand. It supports trust and care without visible faces, using natural skin tone, controlled",
     "width": 800,
     "height": 600
   },
   "social_proof": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/smoketest-1778278789/cleo/1778279360484-social_proof.png",
+    "alt": "Social proof image shows a leash looped over a mid-century chair with a brass tag, cream upholstery, charcoal wall, and moss accent. It gives testimonial space a quiet residential cue while leaving ne",
     "width": 1200,
     "height": 800
   }
