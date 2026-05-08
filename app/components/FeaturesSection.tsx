@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ProjectImage from "@/app/components/ProjectImage";
+import { ProjectImage } from "@/app/components/ProjectImage";
 
 const sectionVariants = {
   hidden: {
@@ -86,6 +86,7 @@ export default function FeaturesSection() {
       <div className="features-shell">
         <div className="features-intro">
           <p className="features-label">How PawWalk works</p>
+          <h2 className="features-heading">How PawWalk works</h2>
           <p className="features-copy">
             Sign up for early access. We open spots in waves, starting in Brooklyn. When your area becomes available, you get priority booking and onboarding instructions.
           </p>
@@ -100,11 +101,14 @@ export default function FeaturesSection() {
           viewport={{ once: true, amount: 0.32 }}
         >
           <motion.div className="feature-text" variants={textVariants}>
-            <motion.h3 className="feature-title" variants={textChildVariants}>
+            <motion.p className="feature-kicker" variants={textChildVariants}>
               Vetted care
+            </motion.p>
+            <motion.h3 className="feature-title" variants={textChildVariants}>
+              Vetted walkers
             </motion.h3>
             <motion.p className="feature-description" variants={textChildVariants}>
-              Every walker completes a background check and an in-person assessment.
+              Background checks, in-person interviews, and local references.
             </motion.p>
           </motion.div>
           <motion.div className="feature-media" variants={imageVariants}>
@@ -120,16 +124,19 @@ export default function FeaturesSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.32 }}
         >
-          <motion.div className="feature-media" variants={imageVariants}>
-            <ProjectImage id="feature_2" className="feature-image" />
-          </motion.div>
           <motion.div className="feature-text" variants={textVariants}>
-            <motion.h3 className="feature-title" variants={textChildVariants}>
+            <motion.p className="feature-kicker" variants={textChildVariants}>
               Simple scheduling
+            </motion.p>
+            <motion.h3 className="feature-title" variants={textChildVariants}>
+              Flexible scheduling
             </motion.h3>
             <motion.p className="feature-description" variants={textChildVariants}>
-              Pick times that work for you, weekday or weekend.
+              Book walks that fit your week, same-day options when available.
             </motion.p>
+          </motion.div>
+          <motion.div className="feature-media" variants={imageVariants}>
+            <ProjectImage id="feature_2" className="feature-image" />
           </motion.div>
         </motion.article>
 
@@ -142,11 +149,14 @@ export default function FeaturesSection() {
           viewport={{ once: true, amount: 0.32 }}
         >
           <motion.div className="feature-text" variants={textVariants}>
-            <motion.h3 className="feature-title" variants={textChildVariants}>
+            <motion.p className="feature-kicker" variants={textChildVariants}>
               Quiet updates
+            </motion.p>
+            <motion.h3 className="feature-title" variants={textChildVariants}>
+              Photo updates
             </motion.h3>
             <motion.p className="feature-description" variants={textChildVariants}>
-              Photo confirmation after each walk, delivered to your inbox.
+              A short photo after every walk so you know your dog is okay.
             </motion.p>
           </motion.div>
           <motion.div className="feature-media" variants={imageVariants}>

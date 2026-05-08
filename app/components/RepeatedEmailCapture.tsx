@@ -52,6 +52,7 @@ export default function RepeatedEmailCapture() {
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consentError, setConsentError] = useState("");
 
   const statusMessage =
     status === "success"
@@ -64,8 +65,15 @@ export default function RepeatedEmailCapture() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setIsSubmitting(true);
     setStatus("idle");
+
+    if (!consent) {
+      setConsentError("I agree to receive emails from PawWalk and accept the Privacy Policy.");
+      return;
+    }
+
+    setConsentError("");
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/early-access", {
@@ -109,78 +117,67 @@ export default function RepeatedEmailCapture() {
       viewport={{ once: true, amount: 0.35 }}
       aria-labelledby="repeated-email-capture-title"
     >
-      <div className="capture-shell">
-        <div className="capture-panel">
-          <motion.h2
-            id="repeated-email-capture-title"
-            className="capture-title"
-            variants={textVariants}
-          >
+      <div className="repeated-email-shell">
+        <motion.div className="repeated-email-copy" variants={textVariants}>
+          <h2 id="repeated-email-capture-title" className="repeated-email-title">
             Get priority booking
-          </motion.h2>
-          <motion.p className="capture-subhead" variants={textVariants}>
+          </h2>
+          <p className="repeated-email-subhead">
             Join the first wave and reserve a spot in your neighborhood.
-          </motion.p>
-          <motion.form
-            className="capture-form"
-            onSubmit={handleSubmit}
-            variants={formVariants}
-            aria-describedby={statusMessage ? "repeated-email-capture-status" : undefined}
-          >
-            <div className="capture-form-row">
-              <label className="sr-only" htmlFor="repeated-email-capture-email">
-                Email address
-              </label>
+          </p>
+        </motion.div>
+
+        <motion.form className="email-form" variants={formVariants} onSubmit={handleSubmit} noValidate>
+          <div className="email-form-row">
+            <input
+              className="email-input"
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              aria-label="your@email.com"
+            />
+            <button className="primary-button" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Get early access" : "Get early access"}
+            </button>
+          </div>
+
+          <div>
+            <div className="consent-row">
               <input
-                id="repeated-email-capture-email"
-                className="capture-input"
-                name="email"
-                type="email"
-                placeholder="your@email.com"
-                autoComplete="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                required
-                disabled={isSubmitting}
-              />
-              <motion.button
-                className="capture-submit"
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                disabled={isSubmitting}
-              >
-                Get early access
-              </motion.button>
-            </div>
-            <label className="capture-consent" htmlFor="repeated-email-capture-consent">
-              <input
-                id="repeated-email-capture-consent"
-                className="capture-checkbox"
-                name="consent"
+                id="footer-consent"
+                className="consent-checkbox"
                 type="checkbox"
                 checked={consent}
-                onChange={(event) => setConsent(event.target.checked)}
+                onChange={(event) => {
+                  setConsent(event.target.checked);
+                  if (event.target.checked) {
+                    setConsentError("");
+                  }
+                }}
                 required
-                disabled={isSubmitting}
+                aria-describedby={consentError ? "footer-consent-error" : undefined}
               />
-              <span>
-                I agree to receive emails from PawWalk and accept the{" "}
-                <Link href="/privacy">Privacy Policy</Link>.
-              </span>
-            </label>
-            {statusMessage ? (
-              <p
-                id="repeated-email-capture-status"
-                className="capture-status"
-                role={status === "success" ? "status" : "alert"}
-                aria-live="polite"
-              >
-                {statusMessage}
+              <label className="consent-label" htmlFor="footer-consent">
+                I agree to receive emails from PawWalk and accept the <Link href="/privacy">Privacy Policy</Link>.
+              </label>
+            </div>
+            {consentError ? (
+              <p id="footer-consent-error" className="form-error" role="alert">
+                {consentError}
               </p>
             ) : null}
-          </motion.form>
-        </div>
+          </div>
+
+          {statusMessage ? (
+            <p className="form-message" role="status">
+              {statusMessage}
+            </p>
+          ) : null}
+        </motion.form>
       </div>
     </motion.section>
   );

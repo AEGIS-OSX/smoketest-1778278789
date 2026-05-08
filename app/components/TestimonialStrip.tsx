@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ProjectImage from "@/app/components/ProjectImage";
+import { ProjectImage } from "@/app/components/ProjectImage";
 
 const sectionMotion = {
   hidden: { opacity: 0, y: 32 },
@@ -57,8 +57,7 @@ export default function TestimonialStrip() {
         </motion.div>
 
         <div className="testimonial-content">
-          {/* Placeholder testimonials approved for early access launch, replace with real quotes when available. */}
-          <motion.figure variants={quoteMotion}>
+          <motion.figure variants={quoteMotion} aria-label="Sample testimonial from Maya, Williamsburg">
             <blockquote className="testimonial-quote-primary">
               “Booking a walk became part of my morning routine. Reliable, thoughtful, and on time.”
             </blockquote>
@@ -66,14 +65,14 @@ export default function TestimonialStrip() {
           </motion.figure>
 
           <motion.div className="testimonial-secondary-list" variants={secondaryListMotion}>
-            <motion.figure className="testimonial-secondary-item" variants={quoteMotion}>
+            <motion.figure className="testimonial-secondary-item" variants={quoteMotion} aria-label="Sample testimonial from Daniel, Park Slope">
               <blockquote className="testimonial-quote-secondary">
                 “I loved getting the photo updates. Small detail, big peace of mind.”
               </blockquote>
               <figcaption className="testimonial-attribution">Daniel, Park Slope</figcaption>
             </motion.figure>
 
-            <motion.figure className="testimonial-secondary-item" variants={quoteMotion}>
+            <motion.figure className="testimonial-secondary-item" variants={quoteMotion} aria-label="Sample testimonial from Priya, Brooklyn Heights">
               <blockquote className="testimonial-quote-secondary">
                 “PawWalk felt local and trustworthy. Signing up was simple.”
               </blockquote>
